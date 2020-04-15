@@ -63,3 +63,8 @@ cd API/
 dotnet watch run
 ```
 Shift Cmd P > Sqlite: Open Database > See in the Sqlite Explorer in the left panel
+
+cd ..
+dotnet ef migrations add SeedValues -p Persistence/ -s API/
+cd API/
+dotnet watch run
