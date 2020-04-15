@@ -22,3 +22,7 @@ exclude
 add pattern
 **/bin
 **/obj
+
+Example of running the application
+`dotnet run -p API/`
+Open the browser and paste `http://localhost:5000/api/values` or `http://localhost:5000/api/values/33`
