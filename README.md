@@ -26,7 +26,19 @@ add pattern
 
 create a gitignore file from template
 `dotnet new gitignore --force`
+if .gitignore is created late, you need to commit deleting the obj folders
+`git rm -rf API/obj Application/obj Persistence/obj`
+These folders will be recreated by running the app
 
 Example of running the application
 `dotnet run -p API/`
 Open the browser and paste `http://localhost:5000/api/values` or `http://localhost:5000/api/values/33`
+
+Add Nuget package
+Open command palette Cmd Shift P
+Nuget Add Package
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.sqlite
+add to persistence project
+
+run `dotnet restore`
