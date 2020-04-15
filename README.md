@@ -42,3 +42,6 @@ Microsoft.EntityFrameworkCore.sqlite
 add to persistence project
 
 run `dotnet restore`
+
+in DataContext.cs, hover DbContext, Cmd . to open context menu > 
+select 'using Microsoft.EntityFrameworkCore'
