@@ -45,3 +45,13 @@ run `dotnet restore`
 
 in DataContext.cs, hover DbContext, Cmd . to open context menu > 
 select 'using Microsoft.EntityFrameworkCore'
+
+install entity framework tool
+dotnet tool install --global dotnet-ef
+run with `dotnet ef`
+Run migrations
+dotnet ef migrations add InitialCreate -p Persistence/ -s API/
+
+Add Microsoft.EntityFrameworkCore.Design:
+Shift Cmd P > Nuget add package > Microsoft.EntityFrameworkCore.Design > 3.1.3 > /API/API.csproj
+dotnet restore
