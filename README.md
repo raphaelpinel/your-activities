@@ -55,3 +55,11 @@ dotnet ef migrations add InitialCreate -p Persistence/ -s API/
 Add Microsoft.EntityFrameworkCore.Design:
 Shift Cmd P > Nuget add package > Microsoft.EntityFrameworkCore.Design > 3.1.3 > /API/API.csproj
 dotnet restore
+
+we could update the database with `dotnet ef migrations database update`
+but we implement instead code inside API/Program.cs
+```
+cd API/
+dotnet watch run
+```
+Shift Cmd P > Sqlite: Open Database > See in the Sqlite Explorer in the left panel
