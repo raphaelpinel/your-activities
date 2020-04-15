@@ -16,12 +16,16 @@ cd Application
 dotnet add reference ../Domain/
 dotnet add reference ../Persistence/
 ```
+
 hide bin and obj
 VSCode preferences > settings
 exclude
 add pattern
 **/bin
 **/obj
+
+create a gitignore file from template
+`dotnet new gitignore --force`
 
 Example of running the application
 `dotnet run -p API/`
