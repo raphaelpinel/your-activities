@@ -43,7 +43,7 @@ add to persistence project
 
 run `dotnet restore`
 
-in DataContext.cs, hover DbContext, Cmd . to open context menu > 
+in DataContext.cs, hover DbContext, Cmd . to open context menu >
 select 'using Microsoft.EntityFrameworkCore'
 
 install entity framework tool
@@ -58,13 +58,18 @@ dotnet restore
 
 we could update the database with `dotnet ef migrations database update`
 but we implement instead code inside API/Program.cs
+
 ```
 cd API/
 dotnet watch run
 ```
+
 Shift Cmd P > Sqlite: Open Database > See in the Sqlite Explorer in the left panel
 
 cd ..
 dotnet ef migrations add SeedValues -p Persistence/ -s API/
 cd API/
 dotnet watch run
+
+create client app
+`npx create-react-app client-app --template typescript`
