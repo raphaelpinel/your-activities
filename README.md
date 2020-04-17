@@ -81,3 +81,9 @@ create client app
 
 Add migration for Activities
 `dotnet ef migrations add "ActivityEntityAdded" -p Persistence/ -s API/
+
+Add Mediatr
+In VSCode Shift Cmd P > Nuget Package Manager: Add Package
+MediatR.Extensions.Microsoft.DependencyInjection
+latest version
+{root}/Application/Application.csproj
