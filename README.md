@@ -68,8 +68,16 @@ Shift Cmd P > Sqlite: Open Database > See in the Sqlite Explorer in the left pan
 
 cd ..
 dotnet ef migrations add SeedValues -p Persistence/ -s API/
+
+To start API server
+
+```
 cd API/
 dotnet watch run
+```
 
 create client app
 `npx create-react-app client-app --template typescript`
+
+Add migration for Activities
+`dotnet ef migrations add "ActivityEntityAdded" -p Persistence/ -s API/
