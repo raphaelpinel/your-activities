@@ -45,7 +45,7 @@ namespace Application.Activities
 
         if (success) return Unit.Value;
 
-        throw new Exception("Problem saving changes to new activity");
+        throw new Exception("Problem saving changes");
       }
     }
   }
