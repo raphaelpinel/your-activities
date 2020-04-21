@@ -1,3 +1,15 @@
+Start backend
+To start API server
+
+```
+cd API/
+dotnet watch run
+```
+Start frontend in a separate terminal window
+cd client-app
+npm start
+
+
 dotnet CLI commands
 
 ```
@@ -68,12 +80,6 @@ Shift Cmd P > Sqlite: Open Database > See in the Sqlite Explorer in the left pan
 
 cd ..
 dotnet ef migrations add SeedValues -p Persistence/ -s API/
-
-To start API server
-
-```
-cd API/
-dotnet watch run
 ```
 
 create client app
