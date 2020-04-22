@@ -5,10 +5,14 @@ To start API server
 cd API/
 dotnet watch run
 ```
+
 Start frontend in a separate terminal window
 cd client-app
 npm start
 
+initialize database (that is going to be re-seeded anyway)
+after stopping running API server
+`dotnet ef database drop -p Persistence/ -s API/`
 
 dotnet CLI commands
 
@@ -80,6 +84,7 @@ Shift Cmd P > Sqlite: Open Database > See in the Sqlite Explorer in the left pan
 
 cd ..
 dotnet ef migrations add SeedValues -p Persistence/ -s API/
+
 ```
 
 create client app
@@ -93,3 +98,4 @@ In VSCode Shift Cmd P > Nuget Package Manager: Add Package
 MediatR.Extensions.Microsoft.DependencyInjection
 latest version
 {root}/Application/Application.csproj
+```
