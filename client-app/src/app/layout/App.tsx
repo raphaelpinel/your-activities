@@ -1,14 +1,16 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Loader } from 'semantic-ui-react';
 import { IActivity } from '../models/activity';
 import { NavBar } from '../../features/nav/NavBar';
 import { ActivityDashboard } from '../../features/activities/dashboard/ActivityDashboard';
 import agent from '../api/agent';
+import { LoadingComponent } from './LoadingComponent';
 
 const App = () => {
   const [activities, setActivities] = useState<IActivity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(null);
   const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleSelectActivity = (id: string | null) => {
     console.log('id in handleSelectActivity:', id);
@@ -53,9 +55,11 @@ const App = () => {
         });
         setActivities(activities);
       })
+      .then(() => setLoading(false))
       .catch((error) => console.log('error', error));
   }, []);
 
+  if (loading) return <LoadingComponent content="Loading activities..." />;
   return (
     <Fragment>
       <NavBar openCreateForm={handleOpenCreateForm} />
