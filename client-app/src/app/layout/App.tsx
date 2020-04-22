@@ -11,20 +11,14 @@ import { observer } from 'mobx-react-lite';
 const App = () => {
   const activityStore = useContext(ActivityStore);
   const [activities, setActivities] = useState<IActivity[]>([]);
-  const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(null);
+  const [selectedActivity, setSelectedActivity] = useState<IActivity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [target, setTarget] = useState('');
 
-  const handleSelectActivity = (id: string | null) => {
-    console.log('id in handleSelectActivity:', id);
-    setSelectedActivity(activities.filter((activity) => activity.id === id)[0]);
-    setEditMode(false);
-  };
-
   const handleOpenCreateForm = () => {
-    setSelectedActivity(null);
+    setSelectedActivity(undefined);
     setEditMode(true);
   };
 
@@ -70,11 +64,7 @@ const App = () => {
       <NavBar openCreateForm={handleOpenCreateForm} />
       <Container style={{ marginTop: '7em' }}>
         <ActivityDashboard
-          activities={activityStore.activities}
-          selectActivity={handleSelectActivity}
           setSelectedActivity={setSelectedActivity}
-          selectedActivity={selectedActivity}
-          editMode={editMode}
           setEditMode={setEditMode}
           createActivity={handleCreateActivity}
           editActivity={handleEditActivity}
