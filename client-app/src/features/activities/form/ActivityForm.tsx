@@ -39,7 +39,6 @@ export const ActivityForm: React.FC<IProps> = ({
         ...activity,
         id: uuid(),
       };
-      console.log('newActivity:', newActivity);
       createActivity(newActivity);
     } else {
       editActivity(activity);
