@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment, SyntheticEvent, useContext } from 'react';
 import { Container, Loader } from 'semantic-ui-react';
 import { IActivity } from '../models/activity';
-import { NavBar } from '../../features/nav/NavBar';
+import NavBar from '../../features/nav/NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
 import agent from '../api/agent';
 import { LoadingComponent } from './LoadingComponent';
@@ -16,22 +16,6 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [target, setTarget] = useState('');
-
-  const handleOpenCreateForm = () => {
-    setSelectedActivity(undefined);
-    setEditMode(true);
-  };
-
-  const handleCreateActivity = (activity: IActivity) => {
-    setSubmitting(true);
-    agent.Activities.create(activity)
-      .then(() => {
-        setActivities([...activities, activity]);
-        setSelectedActivity(activity);
-        setEditMode(false);
-      })
-      .then(() => setSubmitting(false));
-  };
 
   const handleEditActivity = (activity: IActivity) => {
     setSubmitting(true);
@@ -61,12 +45,11 @@ const App = () => {
   if (activityStore.loadingInitial) return <LoadingComponent content="Loading activities..." />;
   return (
     <Fragment>
-      <NavBar openCreateForm={handleOpenCreateForm} />
+      <NavBar />
       <Container style={{ marginTop: '7em' }}>
         <ActivityDashboard
           setSelectedActivity={setSelectedActivity}
           setEditMode={setEditMode}
-          createActivity={handleCreateActivity}
           editActivity={handleEditActivity}
           deleteActivity={handleDeleteActivity}
           submitting={submitting}
